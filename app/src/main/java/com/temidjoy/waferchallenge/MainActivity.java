@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerItemTouch
         // only ItemTouchHelper.LEFT added to detect Right to Left swipe
         // if you want both Right -> Left and Left -> Right
         // add pass ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT as param
-        ItemTouchHelper.SimpleCallback itemTouchHelperCallback = new RecyclerItemTouchHelper(0, ItemTouchHelper.LEFT, this);
+        ItemTouchHelper.SimpleCallback itemTouchHelperCallback = new RecyclerItemTouchHelper(0, ItemTouchHelper.LEFT , this);
         new ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(recyclerView);
 
 
@@ -103,13 +103,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerItemTouch
             // backup of removed item for undo purpose
             final Country deletedItem = countryList.get(viewHolder.getAdapterPosition());
             final int deletedIndex = viewHolder.getAdapterPosition();
-
             // remove the item from recycler view
             mAdapter.removeItem(viewHolder.getAdapterPosition());
-            if (direction==ItemTouchHelper.RIGHT)
-            {
-                mAdapter.notifyDataSetChanged();
-            }
 
         }
     }

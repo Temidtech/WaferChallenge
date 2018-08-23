@@ -47,6 +47,8 @@ public class RecyclerItemTouchHelper extends ItemTouchHelper.SimpleCallback {
         else
             getDefaultUIUtil().onDraw(c, recyclerView, foregroundView, dX, dY,
                     actionState, isCurrentlyActive);
+
+       
     }
 
     @Override
@@ -71,6 +73,8 @@ public class RecyclerItemTouchHelper extends ItemTouchHelper.SimpleCallback {
         else
             getDefaultUIUtil().onDraw(c, recyclerView, foregroundView, dX, dY,
                     actionState, isCurrentlyActive);
+
+
     }
 
     @Override
