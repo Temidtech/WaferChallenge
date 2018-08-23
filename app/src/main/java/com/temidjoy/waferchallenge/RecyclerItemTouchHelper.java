@@ -37,11 +37,13 @@ public class RecyclerItemTouchHelper extends ItemTouchHelper.SimpleCallback {
                                 RecyclerView.ViewHolder viewHolder, float dX, float dY,
                                 int actionState, boolean isCurrentlyActive) {
         final View foregroundView = ((CountryListAdapter.MyViewHolder) viewHolder).viewForeground;
+
         if (dX > -30)
         {
-            getDefaultUIUtil().onDraw(c, recyclerView, foregroundView, -200, dY,
+            getDefaultUIUtil().onDraw(c, recyclerView, foregroundView, -foregroundView.getRight()/4, dY,
                     actionState, isCurrentlyActive);
         }
+
         else
             getDefaultUIUtil().onDraw(c, recyclerView, foregroundView, dX, dY,
                     actionState, isCurrentlyActive);
@@ -59,12 +61,13 @@ public class RecyclerItemTouchHelper extends ItemTouchHelper.SimpleCallback {
                             int actionState, boolean isCurrentlyActive) {
         final View foregroundView = ((CountryListAdapter.MyViewHolder) viewHolder).viewForeground;
         Log.d("dX:",String.valueOf(dX));
-
-         if (dX > -30)
+        Log.d("dXRght:",String.valueOf(foregroundView.getRight()));
+        if (dX > -30)
         {
-            getDefaultUIUtil().onDraw(c, recyclerView, foregroundView, dX/2, dY,
+            getDefaultUIUtil().onDraw(c, recyclerView, foregroundView, -foregroundView.getRight()/4, dY,
                     actionState, isCurrentlyActive);
         }
+
         else
             getDefaultUIUtil().onDraw(c, recyclerView, foregroundView, dX, dY,
                     actionState, isCurrentlyActive);

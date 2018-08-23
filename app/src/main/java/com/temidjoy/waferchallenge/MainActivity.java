@@ -63,10 +63,9 @@ public class MainActivity extends AppCompatActivity implements RecyclerItemTouch
 
 
         // making http call and fetching menu json
-       // prepareCountry();
         new FetchCountriesTask().execute(String.format("%s/rest/v2/all", baseUrl));
 
-        ItemTouchHelper.SimpleCallback itemTouchHelperCallback1 = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT  |ItemTouchHelper.LEFT  | ItemTouchHelper.UP) {
+        ItemTouchHelper.SimpleCallback itemTouchHelperCallback1 = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT ) {
             @Override
             public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
                 return false;
@@ -89,21 +88,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerItemTouch
         new ItemTouchHelper(itemTouchHelperCallback1).attachToRecyclerView(recyclerView);
     }
 
-    private void prepareCountry()
-    {
-        for(int i=0; i<=5; i++)
-        {
-            Country country=new Country();
-            country.setCurrency("NGN"+i);
-            country.setName("Nigeria"+i);
-            country.setLanguage("English"+i);
-            countryList.add(country);
-        }
 
-
-        // refreshing recycler view
-        mAdapter.notifyDataSetChanged();
-    }
     /**
      * callback when recycler view is swiped
      * item will be removed on swiped
