@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerItemTouch
             @Override
             public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
                 return false;
+
             }
 
             @Override

@@ -42,7 +42,7 @@ public class RecyclerItemTouchHelper extends ItemTouchHelper.SimpleCallback {
             float alpha = 1 - (Math.abs(dX) / recyclerView.getWidth());
             backgroundView.setAlpha(alpha);
         }
-        if (dX > -30)
+        if (dX >= -30)
         {
             getDefaultUIUtil().onDraw(c, recyclerView, foregroundView, -foregroundView.getRight()/4, dY,
                     actionState, isCurrentlyActive);
@@ -53,7 +53,9 @@ public class RecyclerItemTouchHelper extends ItemTouchHelper.SimpleCallback {
                     actionState, isCurrentlyActive);
 
 
+
     }
+
 
     @Override
     public void clearView(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
@@ -65,6 +67,7 @@ public class RecyclerItemTouchHelper extends ItemTouchHelper.SimpleCallback {
     public void onChildDraw(Canvas c, RecyclerView recyclerView,
                             RecyclerView.ViewHolder viewHolder, float dX, float dY,
                             int actionState, boolean isCurrentlyActive) {
+
         final View foregroundView = ((CountryListAdapter.MyViewHolder) viewHolder).viewForeground;
         final View backgroundView = ((CountryListAdapter.MyViewHolder) viewHolder).viewBackground;
         Log.d("dX:",String.valueOf(dX));
@@ -73,7 +76,7 @@ public class RecyclerItemTouchHelper extends ItemTouchHelper.SimpleCallback {
             float alpha = 1 - (Math.abs(dX) / recyclerView.getWidth());
             backgroundView.setAlpha(alpha);
         }
-        if (dX > -30)
+        if (dX >= -30)
         {
             getDefaultUIUtil().onDraw(c, recyclerView, foregroundView, -foregroundView.getRight()/4, dY,
                     actionState, isCurrentlyActive);
