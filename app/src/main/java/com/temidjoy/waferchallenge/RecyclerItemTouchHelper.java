@@ -37,7 +37,11 @@ public class RecyclerItemTouchHelper extends ItemTouchHelper.SimpleCallback {
                                 RecyclerView.ViewHolder viewHolder, float dX, float dY,
                                 int actionState, boolean isCurrentlyActive) {
         final View foregroundView = ((CountryListAdapter.MyViewHolder) viewHolder).viewForeground;
-
+        final View backgroundView = ((CountryListAdapter.MyViewHolder) viewHolder).viewBackground;
+        if (actionState == ItemTouchHelper.ACTION_STATE_SWIPE) {
+            float alpha = 1 - (Math.abs(dX) / recyclerView.getWidth());
+            backgroundView.setAlpha(alpha);
+        }
         if (dX > -30)
         {
             getDefaultUIUtil().onDraw(c, recyclerView, foregroundView, -foregroundView.getRight()/4, dY,
@@ -48,7 +52,7 @@ public class RecyclerItemTouchHelper extends ItemTouchHelper.SimpleCallback {
             getDefaultUIUtil().onDraw(c, recyclerView, foregroundView, dX, dY,
                     actionState, isCurrentlyActive);
 
-       
+
     }
 
     @Override
@@ -62,8 +66,13 @@ public class RecyclerItemTouchHelper extends ItemTouchHelper.SimpleCallback {
                             RecyclerView.ViewHolder viewHolder, float dX, float dY,
                             int actionState, boolean isCurrentlyActive) {
         final View foregroundView = ((CountryListAdapter.MyViewHolder) viewHolder).viewForeground;
+        final View backgroundView = ((CountryListAdapter.MyViewHolder) viewHolder).viewBackground;
         Log.d("dX:",String.valueOf(dX));
         Log.d("dXRght:",String.valueOf(foregroundView.getRight()));
+        if (actionState == ItemTouchHelper.ACTION_STATE_SWIPE) {
+            float alpha = 1 - (Math.abs(dX) / recyclerView.getWidth());
+            backgroundView.setAlpha(alpha);
+        }
         if (dX > -30)
         {
             getDefaultUIUtil().onDraw(c, recyclerView, foregroundView, -foregroundView.getRight()/4, dY,
